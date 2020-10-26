@@ -29,10 +29,11 @@ option(INSTALL_GTEST "Enable installation of googletest. (Projects embedding goo
 set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 # 根据实际情况，指定交叉编译的路径
-set(tools /opt/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf)
+set(tools /root/software/android-ndk-r20b)
 # 分别指定C和C++编译器 
-set(CMAKE_C_COMPILER ${tools}/bin/arm-linux-gnueabihf-gcc)
-set(CMAKE_CXX_COMPILER ${tools}/bin/arm-linux-gnueabihf-g++)
+set(CMAKE_C_COMPILER ${tools}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang)
+set(CMAKE_CXX_COMPILER ${tools}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang++)
+#set(CMAKE_CXX_COMPILER ${tools}/bin/arm-linux-gnueabihf-g++)
 
 if(BUILD_GMOCK)
   add_subdirectory( googlemock )
