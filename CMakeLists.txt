@@ -25,6 +25,15 @@ include(GNUInstallDirs)
 option(BUILD_GMOCK "Builds the googlemock subproject" ON)
 option(INSTALL_GTEST "Enable installation of googletest. (Projects embedding googletest may want to turn this OFF.)" ON)
 
+
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR arm)
+# 根据实际情况，指定交叉编译的路径
+set(tools /opt/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf)
+# 分别指定C和C++编译器 
+set(CMAKE_C_COMPILER ${tools}/bin/arm-linux-gnueabihf-gcc)
+set(CMAKE_CXX_COMPILER ${tools}/bin/arm-linux-gnueabihf-g++)
+
 if(BUILD_GMOCK)
   add_subdirectory( googlemock )
 else()
